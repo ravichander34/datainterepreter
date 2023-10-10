@@ -7,9 +7,6 @@ import os
 # Set the OpenAI API key
 os.environ["OPENAI_API_KEY"] = "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"
 
-# Read the CSV file
-df = pd.read_csv('Electric_Production.csv')
-
 st.title('File Interpreter App')
 
 #upload file tab 
