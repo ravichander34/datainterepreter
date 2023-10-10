@@ -16,8 +16,10 @@ if uploaded_file is not None:
     st.write(" Uploaded format is " + uploaded_file.type)
     if "csv" in uploaded_file.type :
         st.write(" Uploaded file is csv ")
-        data = uploaded_file.read()
-        df = pd.read_csv(uploaded_file.name)
+        with open(os.path.join("temp", uploaded_file.name), "wb") as f:
+            f.write(uploaded_file.read())
+        # Read the CSV file
+        df = pd.read_csv(os.path.join("temp", uploaded_file.name))
         st.write(" Error is here")
         st.write(df.head())
 
